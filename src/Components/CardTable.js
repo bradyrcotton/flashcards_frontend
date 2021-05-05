@@ -4,14 +4,14 @@ import React from 'react';
 const CardTable = (props) => {
     console.log('props',props)
     return (
-        <card className="card">
-            <chead>
-                <cr>
+        <table className="table">
+            <thead>
+                <tr>
                     
-                </cr>
-            </chead>
+                </tr>
+            </thead>
             {props.mapCollections()}
-        </card>
+        </table>
             
     );
 }

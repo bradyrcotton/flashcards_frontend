@@ -5,12 +5,7 @@ const Flashcard = (props) =>{
     console.log('flashcard',props)
 
     return (
-        <card>
-            
-                {props.flashcard.title} 
-                
-            
-        </card>
+            <h1>{props.flashcard.title}</h1>    
     );
     
 }
