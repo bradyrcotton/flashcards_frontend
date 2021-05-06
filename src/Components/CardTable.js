@@ -2,18 +2,12 @@ import React from 'react';
 
 
 const CardTable = (props) => {
-    console.log('props',props)
+    console.log('table',props)
     return (
-        <table className="table">
-            <thead>
-                <tr>
-                    
-                </tr>
-            </thead>
-            {props.mapCollections()}
-        </table>
-            
+        props.mapCollections()  
+        
     );
+    
 }
 
 export default CardTable;
