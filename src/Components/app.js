@@ -2,11 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios'
 import Flashcard from './Flashcard/flashcard';
 import CardTable from './CardTable'
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import CardActions from "@material-ui/core/CardActions";
+import './app.css'
 
 
 class App extends Component {
@@ -22,7 +18,7 @@ componentDidMount(){
 
 }
 async getAllCollections(){
-    let response = await axios.get('http://127.0.0.1:8000/flash_cards/');
+    let response = await axios.get('http://127.0.0.1:8000/collection/');
     console.log(response.data)
     this.setState({
         collection: response.data
