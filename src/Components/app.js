@@ -3,7 +3,7 @@ import axios from 'axios'
 import Flashcard from './Flashcard/flashcard';
 import Collection from './Collection/collection';
 import CardTable from './CardTable'
-import CardFilter from './CardFilter'
+
 import './app.css'
 
 
@@ -11,7 +11,7 @@ import './app.css'
 class App extends Component {
     state = {
         collection: [],
-        card: {}
+        card: []
     }
 
 
@@ -56,9 +56,10 @@ mapCards(){
 }
 
 render(){
+    console.log('state',this.state.card)
     return(
         <div>
-        <CardTable mapCollections={() => this.mapCollections()} />
+        <CardTable mapCollections={() => this.mapCollections()} card={this.state.card} />
         </div>
     );
         

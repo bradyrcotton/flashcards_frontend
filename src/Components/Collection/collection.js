@@ -7,7 +7,7 @@ const Collection = (props) =>{
     console.log('collection',props)
     
     return (
-            <h1>{props.collection.title}<h5><SelectCollection collection={props.collection.id}/>{console.log('button',props.collection.id)} </h5></h1> 
+            <h1>{props.collection.title}<h5><SelectCollection collection={props.collection.id} cards={props.card} />{console.log('button',props.collection.id)} </h5></h1> 
             
             
                
