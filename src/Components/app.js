@@ -86,15 +86,10 @@ filterCollectionById(collectionId){
             
         console.log('FILTERCards',filteredCards);
         
-        return(
-        filteredCards.map((FCards) =>{
-            console.log(FCards)
-           return <FilteredCards
-            key={FCards.id}
-            FCards={FCards}
-            />}
-        
-        ))};
+        this.setState({
+            filteredCards: filteredCards
+        })
+    }
         
     
         
@@ -107,6 +102,9 @@ render(){
             mapCollections={() => this.mapCollections()} 
             card={this.state.card}
         />
+        <FilteredCards
+            filteredCards={this.state.filteredCards}
+            />
         
         </div>
     );
