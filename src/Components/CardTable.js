@@ -1,5 +1,5 @@
 import React from 'react';
-import CardFilter from './CardFilter'
+
 
 
 const CardTable = (props) => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import CardFilter from '../CardFilter'
 import './button.css';
 
 

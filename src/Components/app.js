@@ -84,13 +84,14 @@ filterCollectionById(collectionId){
             }
         })
             
-        console.log('FILTERERER',filteredCards);
+        console.log('FILTERCards',filteredCards);
         
         return(
-        filteredCards.map((filteredCards) =>{
+        filteredCards.map((FCards) =>{
+            console.log(FCards)
            return <FilteredCards
-            key={filteredCards.id}
-            filteredCards={filteredCards}
+            key={FCards.id}
+            FCards={FCards}
             />}
         
         ))};
@@ -100,14 +101,13 @@ filterCollectionById(collectionId){
 
 
 render(){
-    console.log('state',this.state.card)
     return(
         <div>
         <CardTable 
             mapCollections={() => this.mapCollections()} 
             card={this.state.card}
         />
-        {/* <FilteredCards mapFilteredCards={() => this.filterCollectionById()} /> */}
+        
         </div>
     );
         
