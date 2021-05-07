@@ -5,13 +5,15 @@ import Collection from './Collection/collection';
 import CardTable from './CardTable'
 
 import './app.css'
+import FilteredCards from './CardFilter';
 
 
 
 class App extends Component {
     state = {
         collection: [],
-        card: []
+        card: [],
+        filteredCards: []
     }
 
 
@@ -41,6 +43,7 @@ mapCollections(){
         <Collection
           key={collection.id}
           collection={collection}
+          filterCollectionById = {(collectionId) => this.filterCollectionById(collectionId)}
         />
     )
 }
@@ -55,11 +58,56 @@ mapCards(){
 
 }
 
+// mapFilterCards(){
+//     return this.state.filteredCards.map(filteredCards =>
+//         <FilteredCards
+//         key={filteredCards.id}
+//         filteredCards={filteredCards}
+//         />
+//     )
+// }
+
+filterCollectionById(collectionId){
+    console.log("COLLECTION ID", collectionId);
+    console.log('STATECARD',this.state.card)
+    let card = this.state.card;
+    
+        let i=0;
+        let filteredCards = this.state.card.filter((card) => {
+            if (this.state.card[i].collection === collectionId){
+                i++
+                return true;    
+        }
+            else{
+                i++
+                return false;
+            }
+        })
+            
+        console.log('FILTERERER',filteredCards);
+        
+        return(
+        filteredCards.map((filteredCards) =>{
+           return <FilteredCards
+            key={filteredCards.id}
+            filteredCards={filteredCards}
+            />}
+        
+        ))};
+        
+    
+        
+
+
 render(){
     console.log('state',this.state.card)
     return(
         <div>
-        <CardTable mapCollections={() => this.mapCollections()} card={this.state.card} />
+        <CardTable 
+            mapCollections={() => this.mapCollections()} 
+            card={this.state.card}
+        />
+        {/* <FilteredCards mapFilteredCards={() => this.filterCollectionById()} /> */}
         </div>
     );
         

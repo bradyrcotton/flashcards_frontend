@@ -3,11 +3,10 @@ import CardFilter from './CardFilter'
 
 
 const CardTable = (props) => {
-    <CardFilter card={props.card}/>
-    console.log('table',props)
+    
     return (
         props.mapCollections()  
-        );
+    );
         
     }
 

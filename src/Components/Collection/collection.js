@@ -4,10 +4,19 @@ import './collection.css'
 
 
 const Collection = (props) =>{
-    console.log('collection',props)
+    console.log('COLLECTION PROPS',props)
     
     return (
-            <h1>{props.collection.title}<h5><SelectCollection collection={props.collection.id} cards={props.card} />{console.log('button',props.collection.id)} </h5></h1> 
+        <div>
+            <h1>{props.collection.title}</h1>
+            <SelectCollection 
+                collection={props.collection.id} 
+                cards={props.card} 
+                filterCollectionById={props.filterCollectionById}
+            />
+        </div>
+            
+            
             
             
                

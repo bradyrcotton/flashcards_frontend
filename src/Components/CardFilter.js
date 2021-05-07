@@ -2,24 +2,11 @@ import React from 'react';
 import CardTable from './CardTable';
 
 
-function CardFilter(props){
-    console.log('filter',props)
-    console.log('card',props.card)
+function FilteredCards(props){
+    console.log("card filter props", props);
    
-    let collection = [
-        {
-            id: props.collection
-        }
-    ];
-    let cards = [
-        {
-            id: props.card.id,
-            word: props.card.word,
-            definition: props.card.definition,
-            collection: props.card.collection
-        }
-    ];
+    
 
 }
 
-export default CardFilter;
+export default FilteredCards;
