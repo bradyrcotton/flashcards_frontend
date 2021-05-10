@@ -1,4 +1,4 @@
-import { Card } from '@material-ui/core';
+import './filter.css'
 import React from 'react';
 
 
@@ -10,7 +10,7 @@ const FilteredCards= (props) => {
         props.filteredCards.map((cards) => {
             return(
                 <div>
-                    {cards.word}
+                   <h1> {cards.word} </h1>
                 </div>
             )
         }))
