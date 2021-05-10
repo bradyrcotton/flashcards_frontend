@@ -10,7 +10,7 @@ const FilteredCards= (props) => {
         props.filteredCards.map((cards) => {
             return(
                 <div>
-                   <h1> {cards.word} </h1>
+                    <element class = 'word'> {cards.word}</element> 
                 </div>
             )
         }))
