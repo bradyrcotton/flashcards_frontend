@@ -25,3 +25,33 @@ h1 {
     height: 150px;
     width: 150px;
 }
+
+.defintition{
+    display: flex;
+    top: -500px;
+    margin-top: 50px;
+    right: -500px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    background-color: white;
+    height: 150px;
+    width: 150px;
+}
+
+.flip{
+    display: flex;
+    top: -500px;
+    margin-top: 5px;
+    right: -500px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    background-color: rgb(1, 224, 31);
+    height: 50px;
+    width: 50px;
+}

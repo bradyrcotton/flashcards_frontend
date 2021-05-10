@@ -3,7 +3,7 @@ import axios from 'axios'
 import Flashcard from './Flashcard/flashcard';
 import Collection from './Collection/collection';
 import CardTable from './CardTable'
-
+import CardCreator from './CardCreator';
 import './app.css'
 import FilteredCards from './CardFilter';
 
@@ -13,7 +13,8 @@ class App extends Component {
     state = {
         collection: [],
         card: [],
-        filteredCards: []
+        filteredCards: [],
+        answer: true
     }
 
 
@@ -22,6 +23,13 @@ componentDidMount(){
     this.getAllCollections();
     this.getAllCards();
 
+}
+flip(answer){
+    // debugger;
+    let newAnswer = answer
+        this.setState({
+            answer: newAnswer
+        })    
 }
 async getAllCollections(){
     let response = await axios.get('http://127.0.0.1:8000/collection/');
@@ -58,15 +66,6 @@ mapCards(){
 
 }
 
-// mapFilterCards(){
-//     return this.state.filteredCards.map(filteredCards =>
-//         <FilteredCards
-//         key={filteredCards.id}
-//         filteredCards={filteredCards}
-//         />
-//     )
-// }
-
 filterCollectionById(collectionId){
     console.log("COLLECTION ID", collectionId);
     console.log('STATECARD',this.state.card)
@@ -91,8 +90,11 @@ filterCollectionById(collectionId){
         })
     }
         
-    
-        
+    async addNewCard(card){ 
+        console.log(card)
+        await axios.post('http://127.0.0.1:8000/flash_cards/', card)
+         this.getAllCards();
+    }
 
 
 render(){
@@ -104,8 +106,10 @@ render(){
         />
         <FilteredCards
             filteredCards={this.state.filteredCards}
+            flip={() => this.flip(this.state.answer)}
+            answer={this.state.answer}
             />
-        
+        <CardCreator addNewCard={this.addNewCard.bind(this)}/>
         </div>
     );
         
