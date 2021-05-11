@@ -24,11 +24,18 @@ componentDidMount(){
     this.getAllCards();
 
 }
-flip(answer){
+lip(){
     // debugger;
-    let newAnswer = answer
         this.setState({
-            answer: newAnswer
+            
+            answer: false
+        })    
+}
+flip(){
+    // debugger;
+        this.setState({
+            
+            answer: true
         })    
 }
 async getAllCollections(){
@@ -106,7 +113,8 @@ render(){
         />
         <FilteredCards
             filteredCards={this.state.filteredCards}
-            flip={() => this.flip(this.state.answer)}
+            lip={() => this.lip()}
+            flip={() => this.flip()}
             answer={this.state.answer}
             />
         <CardCreator addNewCard={this.addNewCard.bind(this)}/>
