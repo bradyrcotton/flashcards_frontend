@@ -6,6 +6,7 @@ import CardTable from './CardTable'
 import CardCreator from './CardCreator';
 import './app.css'
 import FilteredCards from './CardFilter';
+import UpdateCard from './UpdateCard';
 
 
 
@@ -14,7 +15,8 @@ class App extends Component {
         collection: [],
         card: [],
         filteredCards: [],
-        answer: true
+        answer: true,
+        
     }
 
 
@@ -103,12 +105,11 @@ filterCollectionById(collectionId){
          this.getAllCards();
     }
 
-    async updateCard(cardId){
-        let response = await axios.put('http://127.0.0.1:8000/flash_cards/'+cardId+'/')
-        this.getAllCards();
-        this.setState({
-            card: response.data
-        })
+    async updateCard(cardId,card){
+        debugger;
+        console.log('IIIDDD', cardId.id)
+        await axios.put('http://127.0.0.1:8000/flash_cards/'+cardId.id+'/', card)
+        
     }
 
 render(){
@@ -123,9 +124,10 @@ render(){
             lip={() => this.lip()}
             flip={() => this.flip()}
             answer={this.state.answer}
-            updateCard={() => this.updateCard()}
+            updateCard={() => this.updateCard(this.state.cardId)}
             />
         <CardCreator addNewCard={this.addNewCard.bind(this)}/>
+        <UpdateCard updateCard={this.updateCard.bind(this)}/>
         </div>
     );
         
