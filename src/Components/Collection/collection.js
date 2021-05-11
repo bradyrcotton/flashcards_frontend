@@ -4,7 +4,6 @@ import './collection.css'
 
 
 const Collection = (props) =>{
-    console.log('COLLECTION PROPS',props)
     
     return (
         <div>

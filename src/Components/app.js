@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import axios from 'axios'
-import Flashcard from './Flashcard/flashcard';
 import Collection from './Collection/collection';
-import CardTable from './CardTable'
-import CardCreator from './CardCreator';
-import './app.css'
+import Flashcard from './Flashcard/flashcard';
 import FilteredCards from './CardFilter';
+import CardCreator from './CardCreator';
+import React, {Component} from 'react';
 import UpdateCard from './UpdateCard';
+import CardTable from './CardTable'
+import axios from 'axios'
+import './app.css'
 
 
 
@@ -27,14 +27,12 @@ componentDidMount(){
 
 }
 lip(){
-    // debugger;
         this.setState({
             
             answer: false
         })    
 }
 flip(){
-    // debugger;
         this.setState({
             
             answer: true
@@ -42,14 +40,12 @@ flip(){
 }
 async getAllCollections(){
     let response = await axios.get('http://127.0.0.1:8000/collection/');
-    console.log(response.data)
     this.setState({
         collection: response.data
     })
 }
 async getAllCards(){
     let response = await axios.get('http://127.0.0.1:8000/flash_cards/');
-    console.log('allcards',response.data)
     this.setState({
         card: response.data
     })
@@ -76,8 +72,7 @@ mapCards(){
 }
 
 filterCollectionById(collectionId){
-    console.log("COLLECTION ID", collectionId);
-    console.log('STATECARD',this.state.card)
+    
     let card = this.state.card;
     
         let i=0;
@@ -92,7 +87,6 @@ filterCollectionById(collectionId){
             }
         })
             
-        console.log('FILTERCards',filteredCards);
         
         this.setState({
             filteredCards: filteredCards
@@ -100,14 +94,11 @@ filterCollectionById(collectionId){
     }
         
     async addNewCard(card){ 
-        console.log(card)
         await axios.post('http://127.0.0.1:8000/flash_cards/', card)
          this.getAllCards();
     }
 
     async updateCard(cardId,card){
-        debugger;
-        console.log('IIIDDD', cardId.id)
         await axios.put('http://127.0.0.1:8000/flash_cards/'+cardId.id+'/', card)
         
     }
@@ -124,7 +115,6 @@ render(){
             lip={() => this.lip()}
             flip={() => this.flip()}
             answer={this.state.answer}
-            updateCard={() => this.updateCard(this.state.cardId)}
             />
         <CardCreator addNewCard={this.addNewCard.bind(this)}/>
         <UpdateCard updateCard={this.updateCard.bind(this)}/>

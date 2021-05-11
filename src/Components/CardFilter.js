@@ -5,7 +5,6 @@ import React from 'react';
 
 
 const FilteredCards= (props) => {
-    console.log("card filter props", props)
     let i = 0
     let j=0
     let id = 0
@@ -15,9 +14,6 @@ const FilteredCards= (props) => {
             j = props.filteredCards.length
             i++
             id = cards.id
-            console.log ('ID', id)
-            console.log('count', i)
-            console.log('cardscards',cards)
             if( props.answer === true){
                 
                 return(
