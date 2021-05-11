@@ -63,7 +63,7 @@ render() {
                         onChange={this.handleChange} />
                     
                     
-                        <label style={{marginLeft: "190px"}}>Collection:</label>
+                        <label style={{marginLeft: "190px"}}>Collection #:</label>
                         <input type="text" name="album" 
                         onChange={this.handleChange} />
                     </div>

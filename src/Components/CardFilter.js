@@ -6,29 +6,36 @@ import React from 'react';
 
 const FilteredCards= (props) => {
     console.log("card filter props", props)
-    
+    let i = 0
+    let j=0
         return(
+            
         props.filteredCards.map((cards) => {
+            j = props.filteredCards.length
+            i++
+            console.log('count', i)
             console.log('cardscards',cards)
-            // debugger;
             if( props.answer === true){
+                
                 return(
                     
                     <div>
                         
-                        <element class = 'word'> {cards.word} </element>
-                        <button class='lip' onClick = {() => props.lip(false)}>Answer</button>
-                            
+                        <element class = 'word'> {cards.word}  </element>
+                        <element class = 'num'> {'Card'+i+'of' +j}</element>
+                        <button class='lip' onClick = {() => props.lip()}>Answer</button>
+                        <button class='update' onclick = {() => props.updateCard(cards.id)}>Edit</button>
                         
                     </div>
             )}
             else {
-                // debugger;
                 return(
                 
                     <div>
                         <element class = 'word'> {cards.definition} </element>
-                        <button class='flip' onClick = {() => props.flip(true)}>Question</button> 
+                        <element class = 'num'> {'Card'+i+'of' +j}</element>
+                        <button class='flip' onClick = {() => props.flip()}>Question</button>
+                        <button class='update' onclick = {() => props.updateCard(cards.id)}>Edit</button> 
                     </div>
                 )}
             }

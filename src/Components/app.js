@@ -103,6 +103,13 @@ filterCollectionById(collectionId){
          this.getAllCards();
     }
 
+    async updateCard(cardId){
+        let response = await axios.put('http://127.0.0.1:8000/flash_cards/'+cardId+'/')
+        this.getAllCards();
+        this.setState({
+            card: response.data
+        })
+    }
 
 render(){
     return(
@@ -116,6 +123,7 @@ render(){
             lip={() => this.lip()}
             flip={() => this.flip()}
             answer={this.state.answer}
+            updateCard={() => this.updateCard()}
             />
         <CardCreator addNewCard={this.addNewCard.bind(this)}/>
         </div>
